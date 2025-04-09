@@ -17,7 +17,7 @@ jobs:
       - uses: googleapis/release-please-action@v4
         id: release
         with:
-          release-type: node
+          release-type: simple
           target-branch: main
       - uses: actions/checkout@v4
         if: ${{ steps.release.outputs.release_created }}
@@ -35,3 +35,5 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         if: ${{ steps.release.outputs.release_created }}
+
+
